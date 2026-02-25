@@ -37,7 +37,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </Label>
-                              <ComboBox fx:id="combx_ogrenciler" prefWidth="200.0" />
+                              <ComboBox fx:id="combx_ogrenciler" prefWidth="350.0" />
                            </children>
                         </HBox>
                         <Label id="label_gozlemlerim" alignment="CENTER" text="Gözlemlerim">

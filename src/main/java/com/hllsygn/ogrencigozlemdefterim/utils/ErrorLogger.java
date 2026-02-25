@@ -13,11 +13,29 @@ public class ErrorLogger {
     
     private static final String LOG_FILE = "error_log.txt";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final long MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+
+    /**
+     * Log dosyasının boyutunu kontrol eder ve sınırı aşmışsa temizler
+     */
+    private static void checkAndLimitFileSize() {
+        try {
+            java.io.File file = new java.io.File(LOG_FILE);
+            if (file.exists() && file.length() > MAX_FILE_SIZE) {
+                // Dosya boyutunu sıfırla
+                new FileWriter(LOG_FILE, false).close();
+                logError("Log dosyası 5MB sınırını aştığı için temizlendi.");
+            }
+        } catch (IOException e) {
+            System.err.println("Log dosyası kontrol edilemedi: " + e.getMessage());
+        }
+    }
     
     /**
      * Hatayı log dosyasına yazar
      */
     public static void logError(String message, Throwable throwable) {
+        checkAndLimitFileSize();
         try (FileWriter fw = new FileWriter(LOG_FILE, true);
              PrintWriter pw = new PrintWriter(fw)) {
             
@@ -55,6 +73,7 @@ public class ErrorLogger {
      * Sistem bilgilerini log dosyasına yazar
      */
     public static void logSystemInfo() {
+        checkAndLimitFileSize();
         try (FileWriter fw = new FileWriter(LOG_FILE, true);
              PrintWriter pw = new PrintWriter(fw)) {
             

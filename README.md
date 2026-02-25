@@ -1,6 +1,22 @@
 # Öğrenci Gözlem Defterim
 
-Öğretmenler için tasarlanmış, geleneksel kağıt defterlerin yerini alan modern bir masaüstü uygulamasıdır. Bu proje, öğrenci gözlem ve görüş bilgilerini yönetmeyi ve her bir öğrenci için bu mivalde notlar tutmayı kolaylaştırır.
+Öğretmenler için tasarlanmış, geleneksel kağıt defterlerin yerini alan modern bir masaüstü uygulamasıdır. Bu proje, öğrenci gözlem ve görüş bilgilerini yönetmeyi ve her bir öğrenci için bu minvalde notlar tutmayı kolaylaştırır.
+
+> **Not:** Ekran görüntülerinde yer alan tüm ad, soyad ve öğrenci bilgileri tamamen rastgele verilerden oluşmaktadır ve gerçek kişileri temsil etmemektedir.
+
+## Uygulama Ekran Görüntüleri
+
+### Ana Ekran
+Uygulama açıldığında sınıfların listelendiği ve genel yönetimin sağlandığı ana paneldir.
+![Ana Ekran](ekran_goruntuleri/ana_ekran.png)
+
+### Öğrenci Liste Ekranı
+Öğrencilerin listelendiği, yeni öğrenci eklendiği veya düzenlendiği ekrandır.
+![Öğrenci Liste Ekranı](ekran_goruntuleri/ogrenci_liste_ekrani.png)
+
+### Gözlem Kayıt Ekranı
+Seçilen öğrenciye dair gözlem notlarının girildiği ve geçmiş kayıtların görüntülendiği alandır.
+![Gözlem Ekranı](ekran_goruntuleri/gozlem_ekrani.png)
 
 ## Projenin Amacı
 
@@ -30,7 +46,7 @@ src/main/java/com/hllsygn/ogrencigozlemdefterim/
 ├── database/            # Veritabanı bağlantı ve DAO sınıfları
 ├── models/              # Veri modelleri (Ogrenci, Gozlem)
 ├── utils/               # Yardımcı sınıflar (ErrorLogger, AlertDialog, SceneController, PushAnimation)
-├── fxmlfiles/           # FXML dosyaları (boş - resources'ta)
+├── fxmlfiles/           # FXML dosyaları (resources'ta)
 ├── styles/              # CSS stil dosyaları
 └── Main.java            # Ana uygulama sınıfı
 ```
@@ -95,37 +111,3 @@ Uygulama başarıyla paketlendiğinde, çalıştırılabilir dosyalar şu konuml
 *   **Fat JAR:** `build/libs/OgrenciGozlemDefterim-1.0.0-all.jar`
 
 **Not:** MSI veya EXE installer oluşturmak için WiX Toolset gereklidir. Şu anda `skipInstaller = true` ayarı ile sadece uygulama image'ı (portable versiyon) oluşturulmaktadır.
-
-## Özellikler ve Modüller
-
-### Veritabanı Yönetimi
-*   SQLite veritabanı ile yerel veri saklama
-*   DAO (Data Access Object) pattern kullanımı
-*   Otomatik veritabanı oluşturma ve bağlantı yönetimi
-
-### Kullanıcı Arayüzü
-*   JavaFX FXML tabanlı modern arayüz
-*   Özel CSS stillendirme
-*   Responsive tasarım
-
-### Hata Yönetimi
-*   Global exception handler
-*   Otomatik hata loglama (`error_log.txt`)
-*   Kullanıcı dostu hata mesajları
-
-## Daha Fazla Komut
-
-Tüm Gradle komutlarını görmek için:
-```bash
-gradlew tasks
-```
-
-Detaylı komut listesi için `commands.txt` dosyasına bakabilirsiniz.
-
-## Lisans
-
-Bu proje açık kaynak bir projedir.
-
-## Katkıda Bulunma
-
-Projeye katkıda bulunmak isterseniz, pull request gönderebilir veya issue açabilirsiniz.

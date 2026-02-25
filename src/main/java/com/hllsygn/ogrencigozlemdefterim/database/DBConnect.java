@@ -14,7 +14,12 @@ public class DBConnect {
     private Statement statement = null;
 
     private DBConnect() throws ClassNotFoundException, SQLException, IOException {
-        Class.forName("org.sqlite.JDBC");
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            // Modüler yapıda Class.forName bazen gerekmez ama JVM'e bağlıdır
+            System.err.println("SQLite JDBC Driver not found via Class.forName: " + e.getMessage());
+        }
         File file_db = new File("OgrenciVeritabani.db");
         if (!file_db.exists()) {
             file_db.createNewFile();

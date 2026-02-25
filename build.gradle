@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.hllsygn'
-version = '1.0.0'
+version = '1.0.1'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -54,11 +54,12 @@ jlink {
     }
     jpackage {
         imageName = 'OgrenciGozlemDefterim'
-        appVersion = '1.0.0'
-        outputDir = 'jpackage-output'
-        // Sadece uygulama image'ı oluştur (installer olmadan)
-        // MSI veya EXE installer için WiX Toolset gerekir
-        skipInstaller = true
+        appVersion = '1.0.1'
+        vendor = 'HLLSYGN'
+        // Installer oluştur
+        skipInstaller = false
+        installerType = 'exe'
+        installerOptions = ['--win-shortcut', '--win-menu', '--win-dir-chooser']
     }
 }
 
